@@ -4,15 +4,15 @@ using UnityEngine;
 using System;
 
 [System.Serializable]
-public class GameData : MonoBehaviour
+public class GameData
 {
-    // Store the amount of times the player has died
-    public int deathCount;
+    // Store the player's position
+    public Vector3 playerPos;
 
-    // Initialize a constructor which contains
-    // the default values used when there's no data to load
+    // This constructor contains the default values
+    // used when there's no data to load
     public GameData()
     {
-        this.deathCount = 0;
+        playerPos = Vector3.zero;
     }
 }

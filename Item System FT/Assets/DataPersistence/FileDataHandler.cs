@@ -85,6 +85,7 @@ public class FileDataHandler
         }
         catch (Exception e)
         {
+            // Shows the error in the console in case there is one
             Debug.LogError("ERROR: Couldn't save data file:" + fullPath + "\n" + e);
         }
     }
