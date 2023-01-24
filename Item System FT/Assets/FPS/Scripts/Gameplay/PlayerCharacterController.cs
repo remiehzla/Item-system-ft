@@ -6,7 +6,7 @@ using System.Collections;
 namespace Unity.FPS.Gameplay
 {
     [RequireComponent(typeof(CharacterController), typeof(PlayerInputHandler), typeof(AudioSource))]
-    public class PlayerCharacterController : MonoBehaviour
+    public class PlayerCharacterController : MonoBehaviour, IDataPersistance
     {
         [Header("References")] [Tooltip("Reference to the main camera used for the player")]
         public Camera PlayerCamera;
@@ -169,6 +169,18 @@ namespace Unity.FPS.Gameplay
             // force the crouch state to false when starting
             SetCrouchingState(false, true);
             UpdateCharacterHeight(true);
+        }
+
+        public void LoadData(GameData data)
+        {
+            // Load the position where we left
+            this.transform.position = data.playerPos;
+        }
+
+        public void SaveData(ref GameData data)
+        {
+            // Save the position before exiting
+            data.playerPos = this.transform.position;
         }
 
         void Update()
