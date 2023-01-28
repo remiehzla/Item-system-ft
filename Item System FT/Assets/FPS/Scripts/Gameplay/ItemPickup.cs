@@ -5,7 +5,7 @@ using System.Collections;
 
 namespace Unity.FPS.Gameplay
 {
-    public class ItemPickup : Pickup, IDataPersistance
+    public class ItemPickup : Pickup, IDataManager
     {
         // Use their pick up system with new items by overriding their own script
         // Generate ID for the dictionary
@@ -30,7 +30,7 @@ namespace Unity.FPS.Gameplay
             }
         }
 
-        public void SaveData(ref GameData data)
+        public void SaveData(GameData data)
         {
             // Check if the ID of the item exists in the dictionary
             if (data.itemsCollected.ContainsKey(id))

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class DataPersistanceManager : MonoBehaviour
+public class DataManager : MonoBehaviour
 {
     // Singleton class; only one is wanted in the scene
     // Get the instance publicly
@@ -16,10 +16,10 @@ public class DataPersistanceManager : MonoBehaviour
 
     private GameData gameData;
 
-    private List<IDataPersistance> dataPersistenceObjects;
+    private List<IDataManager> dataPersistenceObjects;
     private FileDataHandler dataHandler;
 
-    public static DataPersistanceManager instance { get; private set; }
+    public static DataManager instance { get; private set; }
 
     // Initialize the instance
     private void Awake()
@@ -64,7 +64,7 @@ public class DataPersistanceManager : MonoBehaviour
         }
 
         // Push the loaded data to all the other scripts
-        foreach (IDataPersistance dataPersistanceObj in dataPersistenceObjects)
+        foreach (IDataManager dataPersistanceObj in dataPersistenceObjects)
         {
             dataPersistanceObj.LoadData(gameData);
         }
@@ -75,9 +75,9 @@ public class DataPersistanceManager : MonoBehaviour
     {
         // Pass the data to other scripts first,
         // so that they can update it
-        foreach (IDataPersistance dataPersistanceObj in dataPersistenceObjects)
+        foreach (IDataManager dataPersistanceObj in dataPersistenceObjects)
         {
-            dataPersistanceObj.SaveData(ref gameData);
+            dataPersistanceObj.SaveData(gameData);
         }
 
         // Save the file using the DataHandler
@@ -92,11 +92,11 @@ public class DataPersistanceManager : MonoBehaviour
     }
 
     // Find all scripts that use the data persistence interface 
-    private List<IDataPersistance> FindAllDataPersistenceObjects()
+    private List<IDataManager> FindAllDataPersistenceObjects()
     {
         // Those scripts must also extend from MonoBehaviour
-        IEnumerable<IDataPersistance> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>().OfType<IDataPersistance>();
+        IEnumerable<IDataManager> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>().OfType<IDataManager>();
 
-        return new List<IDataPersistance>(dataPersistenceObjects);
+        return new List<IDataManager>(dataPersistenceObjects);
     }
 }

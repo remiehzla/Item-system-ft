@@ -6,7 +6,7 @@ using System.Collections;
 namespace Unity.FPS.Gameplay
 {
     [RequireComponent(typeof(CharacterController), typeof(PlayerInputHandler), typeof(AudioSource))]
-    public class PlayerCharacterController : MonoBehaviour, IDataPersistance
+    public class PlayerCharacterController : MonoBehaviour, IDataManager
     {
         [Header("References")] [Tooltip("Reference to the main camera used for the player")]
         public Camera PlayerCamera;
@@ -177,7 +177,7 @@ namespace Unity.FPS.Gameplay
             this.transform.position = data.playerPos;
         }
 
-        public void SaveData(ref GameData data)
+        public void SaveData(GameData data)
         {
             // Save the position before exiting
             data.playerPos = this.transform.position;

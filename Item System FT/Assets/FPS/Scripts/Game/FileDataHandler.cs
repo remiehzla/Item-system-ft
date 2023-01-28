@@ -25,6 +25,7 @@ public class FileDataHandler
         // Path.Combine used to work on different OS's
         string fullPath = Path.Combine(dataDirPath, dataFileName);
         GameData loadedData = null;
+
         // Check if the file exists first
         if (File.Exists(fullPath))
         {
