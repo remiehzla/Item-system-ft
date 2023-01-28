@@ -8,6 +8,7 @@ public class GameData
 {
     // Store the player's position
     public Vector3 playerPos;
+    public int collectedItems;
 
     //Dictionary that keeps track if the collected items
     public SerializableDictionary<string, bool> itemsCollected;
@@ -17,6 +18,7 @@ public class GameData
     public GameData()
     {
         playerPos = Vector3.zero;
+        collectedItems = 0;
         itemsCollected = new SerializableDictionary<string, bool>();
     }
 }

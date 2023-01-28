@@ -13,7 +13,7 @@ namespace Unity.FPS.Gameplay
         // Generate ID for the dictionary
         // 32 characters that have a very high chance to be unique
         [SerializeField] private string id;
-        [SerializeField] private bool pickedUp = false;
+        [SerializeField] public bool pickedUp = false;
 
         //Add a command for reference
         [ContextMenu("Generate ID")]
@@ -24,7 +24,6 @@ namespace Unity.FPS.Gameplay
         }
         public void LoadData(GameData data)
         {
-           
             // Check whether this item has already been collected or not
             data.itemsCollected.TryGetValue(id, out pickedUp);
             if (pickedUp)
