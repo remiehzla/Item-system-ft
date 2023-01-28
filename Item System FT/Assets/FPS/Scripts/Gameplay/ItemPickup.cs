@@ -2,9 +2,11 @@ using Unity.FPS.Game;
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Unity.FPS.Gameplay
 {
+    [CreateAssetMenu]
     public class ItemPickup : Pickup, IDataManager
     {
         // Use their pick up system with new items by overriding their own script
@@ -14,13 +16,15 @@ namespace Unity.FPS.Gameplay
         [SerializeField] private bool pickedUp = false;
 
         //Add a command for reference
-        [ContextMenu("Generate GUID into ID")]
-        private void GenerateGUID()
+        [ContextMenu("Generate ID")]
+        private void GenerateID()
         {
+            // Generate an ID automatically
             id = System.Guid.NewGuid().ToString();
         }
         public void LoadData(GameData data)
         {
+           
             // Check whether this item has already been collected or not
             data.itemsCollected.TryGetValue(id, out pickedUp);
             if (pickedUp)
@@ -58,7 +62,7 @@ namespace Unity.FPS.Gameplay
             pickedUp = true;
             Destroy(gameObject);
         }
-        
+
     }
 }
 

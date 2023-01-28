@@ -16,7 +16,7 @@ public class DataManager : MonoBehaviour
 
     private GameData gameData;
 
-    private List<IDataManager> dataPersistenceObjects;
+    private List<IDataManager> dataObjects;
     private FileDataHandler dataHandler;
 
     public static DataManager instance { get; private set; }
@@ -37,7 +37,8 @@ public class DataManager : MonoBehaviour
     {
         // Uses the standard path conforming to the OS
         this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
-        this.dataPersistenceObjects = FindAllDataPersistenceObjects();
+        // Reference the scripts that are using the interface
+        this.dataObjects = FindAllDataObjects();
         // Load the game on start-up
         LoadGame();
     }
@@ -64,7 +65,7 @@ public class DataManager : MonoBehaviour
         }
 
         // Push the loaded data to all the other scripts
-        foreach (IDataManager dataPersistanceObj in dataPersistenceObjects)
+        foreach (IDataManager dataPersistanceObj in dataObjects)
         {
             dataPersistanceObj.LoadData(gameData);
         }
@@ -75,7 +76,7 @@ public class DataManager : MonoBehaviour
     {
         // Pass the data to other scripts first,
         // so that they can update it
-        foreach (IDataManager dataPersistanceObj in dataPersistenceObjects)
+        foreach (IDataManager dataPersistanceObj in dataObjects)
         {
             dataPersistanceObj.SaveData(gameData);
         }
@@ -92,11 +93,11 @@ public class DataManager : MonoBehaviour
     }
 
     // Find all scripts that use the data persistence interface 
-    private List<IDataManager> FindAllDataPersistenceObjects()
+    private List<IDataManager> FindAllDataObjects()
     {
         // Those scripts must also extend from MonoBehaviour
-        IEnumerable<IDataManager> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>().OfType<IDataManager>();
+        IEnumerable<IDataManager> dataObjects = FindObjectsOfType<MonoBehaviour>().OfType<IDataManager>();
 
-        return new List<IDataManager>(dataPersistenceObjects);
+        return new List<IDataManager>(dataObjects);
     }
 }

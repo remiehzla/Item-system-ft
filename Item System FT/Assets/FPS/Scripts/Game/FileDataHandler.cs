@@ -12,7 +12,7 @@ public class FileDataHandler
     // Name of the file that we want to save
     private string dataFileName = "";
 
-    // Take the values and set them
+    // Take the values and set them correctly
     public FileDataHandler(string dataDirPath, string dataFileName)
     {
         this.dataDirPath = dataDirPath;
