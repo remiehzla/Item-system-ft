@@ -6,7 +6,6 @@ using System.Collections.Generic;
 
 namespace Unity.FPS.Gameplay
 {
-    [CreateAssetMenu]
     public class ItemPickup : Pickup, IDataManager
     {
         // Use their pick up system with new items by overriding their own script
@@ -19,9 +18,10 @@ namespace Unity.FPS.Gameplay
         [ContextMenu("Generate ID")]
         private void GenerateID()
         {
-            // Generate an ID automatically
+            // Generate an ID automatically, but I can use a customizable name as well
             id = System.Guid.NewGuid().ToString();
         }
+
         public void LoadData(GameData data)
         {
             // Check whether this item has already been collected or not
@@ -44,7 +44,7 @@ namespace Unity.FPS.Gameplay
             data.itemsCollected.Add(id, pickedUp);
         }
 
-        protected override void OnPicked(PlayerCharacterController byPlayer)
+        protected override void OnPicked(PlayerCharacterController player)
         {
             // Check if the item has been collected
             // Other scripts check if the item has been assigned to the player's component,
@@ -53,7 +53,7 @@ namespace Unity.FPS.Gameplay
             {
                 CollectItem();
             }
-            
+
         }
 
         private void CollectItem()
