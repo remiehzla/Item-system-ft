@@ -5,7 +5,7 @@ using UnityEngine.Events;
 namespace Unity.FPS.Gameplay
 {
     [RequireComponent(typeof(AudioSource))]
-    public class Jetpack : MonoBehaviour
+    public class Jetpack : MonoBehaviour, IDataManager
     {
         [Header("References")] [Tooltip("Audio source for jetpack sfx")]
         public AudioSource AudioSource;
@@ -51,6 +51,14 @@ namespace Unity.FPS.Gameplay
 
         public UnityAction<bool> OnUnlockJetpack;
 
+        public void LoadData(GameData data)
+        {
+            this.IsJetpackUnlocked = data.isJetpackPicked;
+        } 
+        public void SaveData(GameData data)
+        {
+            data.isJetpackPicked = this.IsJetpackUnlocked;
+        }
         void Start()
         {
             IsJetpackUnlocked = IsJetpackUnlockedAtStart;
@@ -66,6 +74,15 @@ namespace Unity.FPS.Gameplay
 
             AudioSource.clip = JetpackSfx;
             AudioSource.loop = true;
+        }
+
+        // if the jetpack was already picked up, it will just destroy itself when the player collides with it
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (IsJetpackUnlocked && collision.gameObject.tag == "Player")
+            {
+                Destroy(this.gameObject);
+            }
         }
 
         void Update()
