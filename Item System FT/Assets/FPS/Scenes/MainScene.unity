@@ -172,6 +172,7 @@ GameObject:
   - component: {fileID: 42183646}
   - component: {fileID: 42183653}
   - component: {fileID: 42183652}
+  - component: {fileID: 42183654}
   m_Layer: 0
   m_Name: Pickup_Item
   m_TagString: Untagged
@@ -304,6 +305,25 @@ MonoBehaviour:
   PickupSfx: {fileID: 0}
   PickupVfxPrefab: {fileID: 0}
   Item: {fileID: 11400000, guid: 0548d558125de6a41a44c8147f071064, type: 2}
+--- !u!114 &42183654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42183644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c1a408c8243ced4596507b3c78977a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VerticalBobFrequency: 1
+  BobbingAmount: 1
+  RotatingSpeed: 360
+  PickupSfx: {fileID: 0}
+  PickupVfxPrefab: {fileID: 0}
+  id: 8df46104-ea70-4fa8-8879-cead4dc6c16b
+  pickedUp: 0
 --- !u!1 &74239079 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4778346531047654936, guid: c1f95b2a073069e4091731002c38a3df,
@@ -432,6 +452,7 @@ GameObject:
   - component: {fileID: 370381942}
   - component: {fileID: 370381948}
   - component: {fileID: 370381947}
+  - component: {fileID: 370381949}
   m_Layer: 0
   m_Name: Pickup_Item (2)
   m_TagString: Untagged
@@ -564,6 +585,25 @@ MonoBehaviour:
   PickupSfx: {fileID: 0}
   PickupVfxPrefab: {fileID: 0}
   Item: {fileID: 11400000, guid: 347fe0e632dfcf24bb15224001ac654b, type: 2}
+--- !u!114 &370381949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370381940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c1a408c8243ced4596507b3c78977a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VerticalBobFrequency: 1
+  BobbingAmount: 1
+  RotatingSpeed: 360
+  PickupSfx: {fileID: 0}
+  PickupVfxPrefab: {fileID: 0}
+  id: a42d1c89-f083-4390-863d-43863fc27cff
+  pickedUp: 0
 --- !u!4 &398217299 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2141676431450117668, guid: cd17687759887a0438ee021e51abc9d9,
@@ -1614,6 +1654,7 @@ GameObject:
   - component: {fileID: 1354185489}
   - component: {fileID: 1354185495}
   - component: {fileID: 1354185494}
+  - component: {fileID: 1354185496}
   m_Layer: 0
   m_Name: Pickup_Item (1)
   m_TagString: Untagged
@@ -1746,6 +1787,25 @@ MonoBehaviour:
   PickupSfx: {fileID: 0}
   PickupVfxPrefab: {fileID: 0}
   Item: {fileID: 11400000, guid: e869a9b7c7e717d4380895a848e7a058, type: 2}
+--- !u!114 &1354185496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354185487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c1a408c8243ced4596507b3c78977a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VerticalBobFrequency: 1
+  BobbingAmount: 1
+  RotatingSpeed: 360
+  PickupSfx: {fileID: 0}
+  PickupVfxPrefab: {fileID: 0}
+  id: cf61eee1-9112-462c-b06b-d54524d9817a
+  pickedUp: 0
 --- !u!1001 &1357953775
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2677,7 +2737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8aa97a873ab1074fb8bee560ac893bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryUi: {fileID: 0}
+  inventoryUi: {fileID: 1870618914}
 --- !u!4 &2091206812 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2141676431450117668, guid: cd17687759887a0438ee021e51abc9d9,

@@ -43,7 +43,6 @@ public class FileDataHandler
 
                 // Deserialize data from JSON -> GAME OBJ DATA
                 loadedData = JsonUtility.FromJson<GameData>(dataToLoad);
-
             }
             catch (Exception e)
             {
