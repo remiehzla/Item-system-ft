@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Box 1
   m_EditorClassIdentifier: 
   id: 1
-  itemName: Box1
-  value: 10
-  itemIcon: {fileID: 0}
+  itemName: Blue Gem
+  itemIcon: {fileID: 21300000, guid: bc694fefc8e3a7543ba25927b42cf678, type: 3}

@@ -79,9 +79,9 @@ namespace Unity.FPS.Gameplay
         // if the jetpack was already picked up, it will just destroy itself when the player collides with it
         private void OnCollisionEnter(Collision collision)
         {
-            if (IsJetpackUnlocked && collision.gameObject.tag == "Player")
+            if (IsJetpackUnlocked)
             {
-                Destroy(this.gameObject);
+                Destroy(gameObject);
             }
         }
 

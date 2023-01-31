@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
+
 namespace Unity.FPS.Game
 {
-    public class Health : MonoBehaviour, IDataManager
+    public class Health : MonoBehaviour
     {
         [Tooltip("Maximum amount of health")] public float MaxHealth = 10f;
 
@@ -14,7 +15,7 @@ namespace Unity.FPS.Game
         public UnityAction<float> OnHealed;
         public UnityAction OnDie;
 
-        public float CurrentHealth;
+        public float CurrentHealth { get; set; }
         public bool Invincible { get; set; }
         public bool CanPickup() => CurrentHealth < MaxHealth;
 
@@ -23,13 +24,11 @@ namespace Unity.FPS.Game
 
         bool m_IsDead;
 
-        public void LoadData(GameData data)
+
+
+        void Start()
         {
-            this.CurrentHealth = data.healthAmount;
-        }
-        public void SaveData(GameData data)
-        {
-            data.healthAmount = CurrentHealth;
+            CurrentHealth = MaxHealth;
         }
 
         public void Heal(float healAmount)
@@ -88,7 +87,5 @@ namespace Unity.FPS.Game
             }
         }
 
-        
-        
     }
 }

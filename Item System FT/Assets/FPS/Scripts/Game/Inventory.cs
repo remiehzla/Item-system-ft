@@ -24,7 +24,7 @@ public class Inventory : MonoBehaviour, IDataManager
     }
     public void SaveData(GameData data)
     {
-        data.items = this.items;
+       data.items = this.items;
     }
     public void Add(Item item)
     {

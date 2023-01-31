@@ -370,8 +370,8 @@ namespace Unity.FPS.AI
             // a random object from the list
             if (TryDropItem())
             {
-                for(int i = 0; i< LootPrefab.Count; i++)
-                    Instantiate(LootPrefab[Random.Range(i, LootPrefab.Count)], transform.position, Quaternion.identity);
+                //for(int i = 0; i< LootPrefab.Count; i++)
+                Instantiate(LootPrefab[Random.Range(0, LootPrefab.Count)], transform.position, Quaternion.identity);
             }
 
             // this will call the OnDestroy function

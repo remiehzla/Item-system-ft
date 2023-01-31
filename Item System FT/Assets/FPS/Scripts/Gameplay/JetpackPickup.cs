@@ -6,7 +6,10 @@
         {
             var jetpack = byPlayer.GetComponent<Jetpack>();
             if (!jetpack)
+            {
                 return;
+            }
+               
 
             if (jetpack.TryUnlock())
             {
