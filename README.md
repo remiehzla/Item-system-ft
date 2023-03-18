@@ -1,6 +1,7 @@
 # Item-system-ft
 
 **User guide**
+
 **Base**
 - Create a ScriptableObject 
 o Add a name, ID and sprite (more features can be added in the Item 
